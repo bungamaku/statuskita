@@ -13,13 +13,17 @@
         <div class="event-container">
             {% for item in status %}
             <div class="event-flex">
-                <div class="main-container">
-                    <div class="name">{{ item.content }}</div>
+                <div class="status-container">
+                    <div class="status">{{ item.content }}</div>
                     <div class="name">{{ item.date }}</div>
                 </div>
             </div>
             {% endfor %}
         </div>
+        <form action="/delete-all/">
+            {% csrf_token %}
+            <input class="button" type="submit" value="Delete All Status">
+        </form>
     </div>
 </main>
 {% endblock %}

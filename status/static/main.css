@@ -189,6 +189,20 @@ a:hover {
     margin-top: 30px;
 }
 
+.status {
+    text-align: left;
+    color: white;
+    line-height: 25px;
+    font-size: 25px;
+    margin-top: 50px;
+    margin-left: 35px;
+}
+
+.status-container {
+    line-height: 10px;
+    margin-bottom: 20px;
+}
+
 .button {
     background-color: #80CCC4;
     border: none;

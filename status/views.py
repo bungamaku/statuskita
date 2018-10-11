@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import StatusModel
 from .forms import StatusForm
 from datetime import datetime
@@ -30,3 +30,9 @@ def about(request):
     page_title = "About Ama"
     response = {"title" : page_title}
     return render(request, 'about.html', response)
+
+def delete(request):
+    status = StatusModel.objects.all()
+    for item in status:
+        item.delete()
+    return redirect('/status')

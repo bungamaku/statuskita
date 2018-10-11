@@ -4,7 +4,7 @@ from django.urls import resolve
 from django.http import HttpRequest
 from django.utils import timezone
 from .models import StatusModel
-from .views import status
+from .views import status, about
 from .forms import StatusForm
 
 class StatusUnitTest(TestCase):
@@ -16,7 +16,7 @@ class StatusUnitTest(TestCase):
         found = resolve('/status/')
         self.assertEqual(found.func, status)
 
-    def test_index_template_used(self):
+    def test_status_template_used(self):
         response = Client().get('/status/')
         self.assertTemplateUsed(response, 'status.html')
 
@@ -37,3 +37,15 @@ class StatusUnitTest(TestCase):
         test_str = 'hai'
         response_post = Client().post('/status/', {'content': test_str, 'date': timezone.now()})
         self.assertEqual(response_post.status_code, 200)
+
+    def test_about_url_is_exist(self):
+        response = Client().get('/about/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_about_using_about_func(self):
+        found = resolve('/about/')
+        self.assertEqual(found.func, about)
+
+    def test_about_template_used(self):
+        response = Client().get('/about/')
+        self.assertTemplateUsed(response, 'about.html')
