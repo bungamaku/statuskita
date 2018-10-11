@@ -30,7 +30,7 @@ body {
     text-decoration: none;
 }
 
-a:hover {
+.navbar-container > a:hover {
     background-color: #07161C;
 }
 
@@ -80,6 +80,10 @@ a:hover {
 .logo > img {
     display: inline-block;
     margin: 3px;
+}
+
+.logo > a {
+    margin: 5px;
 }
 
 .flex-right {
