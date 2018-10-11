@@ -5,7 +5,6 @@ from .forms import StatusForm
 from datetime import datetime
 
 def status(request):
-    page_title = "How are you?"
     status = StatusModel.objects.all().values()
 
     if request.method == 'POST':
@@ -20,7 +19,6 @@ def status(request):
         form = StatusForm()
 
     response = {
-        "title" : page_title,
         'form' : form,
         'status' : status,
     }
