@@ -308,4 +308,16 @@ footer {
     .desc {
         text-align: center;
     }
+    
+    .form-flex {
+        width: 90%;
+    }
+
+    .event-container {
+        width: 90%;
+    }
+
+    .status {
+        font-size: 18px;
+    }
 }
