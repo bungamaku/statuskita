@@ -25,7 +25,7 @@ SECRET_KEY = '40f(q9jc-_8-yr9hffcu=ahf2*a!24rd6feh2odmjk$ii3io2y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['statuskita.herokuapp.com']
+ALLOWED_HOSTS = ['statuskita.herokuapp.com','localhost']
 
 
 # Application definition
