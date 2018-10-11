@@ -1,3 +1,32 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from .models import StatusModel
+from .forms import StatusForm
+from datetime import datetime
 
-# Create your views here.
+def status(request):
+    page_title = "How are you?"
+    status = StatusModel.objects.all().values()
+
+    if request.method == 'POST':
+        form = StatusForm(request.POST)
+        if form.is_valid():
+            status = StatusModel()
+            status.content = form.cleaned_data['your_status']
+            status.date = datetime.now()
+            status.save()
+            return HttpResponseRedirect('/status')
+    else:
+        form = StatusForm()
+
+    response = {
+        "title" : page_title,
+        'form' : form,
+        'status' : status,
+    }
+    return render(request, 'status.html', response)
+
+def about(request):
+    page_title = "About Ama"
+    response = {"title" : page_title}
+    return render(request, 'about.html', response)
